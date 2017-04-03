@@ -1,2 +1,7 @@
-# coding-cheatsheets
-Cheatsheets and examples
+# Cheatsheets and quick examples
+
+A little collection of notes regarding my studies of different programming languages, frameworks and technologies.
+
+## SQL
+
+- [Basics](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/SQL/basics.md)
