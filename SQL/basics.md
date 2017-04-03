@@ -2,29 +2,30 @@
 
 Stands for Structured Query Language.
 
-### Syntax
+### 1. Syntax
 
 SQL uses *statements* as valid commands. Statements consist of:
 - *clause*: written in capital letters, define the type of task we would like to perform on the database
 - *table name*: the datatable we want to perform the task on
 - *parameters*: such as the column name within the datatable, the data types or values
+- *semicolon*: each valid command ends with a semicolon
 
 `CREATE TABLE table_name (column_1 data_type, column_2 data_type, column_3 data_type);`
 
-### Operators
+### 2. Operators
 
 `SELECT column_1 FROM table_name WHERE condition;`
 
 The query will execute successfully, if the *condition* of the statement is true. The condition is a logical expression that may use one or more of the following operators.
 
-#### Arithmetic operators:
+#### 2.1 Arithmetic operators:
 - `+` addition
 - `-` subtraction
 - `*` multiplication
 - `/` division
 - `&` modulus, returns the remainder
 
-#### Comparison operators:
+#### 2.2 Comparative operators:
 - `=` equal
 - `>` greater than
 - `<` less than
@@ -34,7 +35,7 @@ The query will execute successfully, if the *condition* of the statement is true
 - `!<` not less than
 - `!>` not greater than
 
-#### Logical operators
+#### 2.3 Logical operators
 - `ALL` compares with all values of a set (accepts another condition)
 - `AND` concatenates multiples conditions, all of them have to be true, to evaluate to true
 - `ANY` compares with any value of a set (accepts another condition)
@@ -47,11 +48,9 @@ The query will execute successfully, if the *condition* of the statement is true
 - `IS NULL` or `IS NOT NULL` looks for a NULL or NOT NULL value
 - `UNIQUE` searches for no duplicatation
 
-### Clauses
+### 3. Clauses
 
-`CREATE TABLE table_name (column_1 data_type, column_2 data_type, column_3 data_type);`
-
-Creates a new table with the column headers, restricts the columns to the specified data type. More on data types later.
+#### 3.1 Select clause
 
 `SELECT * FROM table_name;`
 
@@ -61,9 +60,35 @@ Select is used to fetch data from a database. The asterisk `*` is a wildcard cha
 
 Special case of select clause, it will list each unique value of the specified column.
 
-`SELECT * FROM table_name ORDER BY column_1 DESC`
+`SELECT * FROM table_name ORDER BY column_1 DESC;`
 
 You can sort the output in descending or ascending order, by a specified column.
+
+`SELECT * FROM table_name ORDER BY column_1 ASC LIMIT 5;`
+
+The *limit* operator will restrict the output to the number of results specified in the condition.
+
+`SELECT COUNT(*) FROM table_name WHERE condition;`
+
+Counts all records (rows) in a datatable that match the condition. If there is no condition specified, it will return the count of all rows where the value is NOT NULL.
+
+`SELECT column_1, COUNT(*) FROM table_name WHERE condition GROUP BY column_1;`
+
+Group by will allow you to group the results by the selected column and count the matching rows. Don't forget the comma after the column name!
+
+`SELECT column_2, SUM(column_1) FROM table_name GROUP BY column_2;`
+
+The *SUM* function will allow you to add all the integer values of a column.
+
+`SELECT MAX(column_1) FROM table_name;`
+
+Returns the maximum `MAX` or minimum `MIN` value of the specified column.
+
+#### 3.2 Other clauses
+
+`CREATE TABLE table_name (column_1 data_type, column_2 data_type, column_3 data_type);`
+
+Creates a new table with the column headers, restricts the columns to the specified data type. More on data types later.
 
 `INSERT INTO table_name (column_1, column_2, column_3) VALUES (value_1, value_2, value_3);`
 
