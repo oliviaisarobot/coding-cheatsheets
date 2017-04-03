@@ -91,7 +91,9 @@ This example returns the highest value of column_1 for each unique value of colu
 
 #### 3.2 Multiple tables
 
-//
+- `PRIMARY KEY` and `FOREIGN KEY`
+
+Used to indicate an unique value of a record, usually an id. A foreign key is another table's primary key inserted in a different table.
 
 #### 3.3 Other clauses
 
