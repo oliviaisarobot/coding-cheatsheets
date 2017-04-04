@@ -138,7 +138,3 @@ Deletes record (row) from a table where the condition is true.
 - `ALTER TABLE table_name ADD COLUMN new_column data_type;`
 
 Modifies an existing datatable.
-
-### 4. Data types
-
-- `INTEGER` or `INT`
