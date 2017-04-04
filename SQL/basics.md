@@ -95,6 +95,28 @@ This example returns the highest value of column_1 for each unique value of colu
 
 Used to indicate an unique value of a record, usually an id. A foreign key is another table's primary key inserted in a different table.
 
+##### 3.2.1 Cross join or Cartesian product
+
+- `SELECT * FROM table_name_1.value1, table_name_2.value1 FROM table_name_1, table_name_2;`
+
+All rows of the first table are matched up with all rows of the second table. Rarely used but sometimes handy when you need to render for example, every possible match for two datasets.
+
+##### 3.2.2 Inner join
+
+- `SELECT * FROM table_name_1 JOIN table_name_2 ON table_name_1.value1 = table_name_2.value2;`
+
+Joins two datatables and selects all columns, it will match the data based on the common value we defines in `JOIN table ON value1 = value2`
+
+##### 3.2.3 Outer join
+
+- `SELECT * FROM table_name_1 LEFT JOIN table_name_2 ON table_name_1.value1 = table_name_2.value2;`
+
+Same as inner join, except this will include the NULL values as well, while the previous example only returns a match when both values are NOT NULL.
+
+- `table_name_1.value1 AS name`
+
+When you want to change the header ofa variable (because for example, the same header exists in another table, or you just want it to be displayed differently), you can use AS.
+
 #### 3.3 Other clauses
 
 - `CREATE TABLE table_name (column_1 data_type PRIMARY KEY, column_2 data_type, column_3 data_type);`
