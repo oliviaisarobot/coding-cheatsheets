@@ -12,6 +12,10 @@ A little collection of notes regarding my studies of different programming langu
 
 - [Basics](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/basics.md)
 
+## Python
+
+- [Basics](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/Python/basics.md)
+
 ## SQL
 
 - [Basics](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/SQL/basics.md)
