@@ -27,7 +27,7 @@ after generating your new component, you normally have to add it to your compone
 
 `interpolation` or `{{ }}` brackets used in the html that allows us to print out component properties
 
-```` backticks in the template allow us to use multiline strings
+- backticks in the template allow us to use multiline strings
 
 ### Two-way data binding
 
