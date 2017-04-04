@@ -33,19 +33,27 @@ print("I love %s" % who)
 ### Functions
 
 - `print()`
-- slicing, variable[ ], variable[:], 0, -1
-- len(""), len(variable), string length
-- lists, variable = [ , , , ], variable[2] = 92
-- funcions variable.append()
-- variable[:2] = [] delete items
-- variable[:] = [] delete everything from variable
+- `array[:]` slicing, variable[ ], variable[:], 0, -1
+- `len("")`, `len(variable)`, string length
+- `variable = [ , , , ]`, `variable[2] = 92` define list and replace list items
+- `variable.append()` add new item to an array
+- `variable[:2] = []` delete items from an array
+- `variable[:] = []` delete everything from an array
 
 #### If, elif, else
 
 - if variable <,>,=
 - elif, what to do in other case
 - else, if no previous syntaxes were run, what to do
-- for loop, for variable to replace items in the list, for variable in list, for f in foods
+
+```python
+if x > 10:
+    # do something
+elif x = 10:
+    # do something
+else:
+    # do something
+```
 
 #### For loop
 
@@ -177,15 +185,15 @@ fw.close()
 certain_url = "http://..."
 
 def download_something(url):
-	response = request.urlopen(url) # connects to the internet and finds the file
-	url = response.read() # tells it to read the file
-	url_str = str(url)
-	lines = url_str.split("\\n")
-	dest_url = r"something" # defines the saving destination
-	fx = open(dest_url, "w")
-	for line in lines:
-		fx.write(line + "\n")
-	fx.close()
+    response = request.urlopen(url) # connects to the internet and finds the file
+    url = response.read() # tells it to read the file
+    url_str = str(url)
+    lines = url_str.split("\\n")
+    dest_url = r"something" # defines the saving destination
+    fx = open(dest_url, "w")
+    for line in lines:
+	fx.write(line + "\n")
+    fx.close()
 
 download_something(cerain_url)
 ```
