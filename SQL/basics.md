@@ -151,5 +151,24 @@ In *correlated subqueries*, the inner query cannot be run independently from the
 
 ### 5. Set operations
 
+White JOIN merges rows, UNION *merges columns* between two tables. A UNION combines the result of two or more select statements.
 
+- `SELECT * FROM table1 UNION SELECT * FROM table2;`
 
+Each SELECT statement within the UNION must have the same number of columns with similar data types. 
+
+- `SELECT brand FROM table1 UNION SELECT brand FROM table2;`
+
+It will list all the unique rows for brand from table1 and table2.
+
+- `SELECT brand FROM table1 UNION ALL SELECT brand FROM table2;`
+
+The ALL operator will allow duplicated rows to be displayed in the result.
+
+- `SELECT brand FROM table1 INTERSECT SELECT brand FROM table2;`
+
+This will only return the brands from table1 that are also in table2.
+
+- `SELECT brand FROM table1 EXCEPT SELECT brand FROM table2;`
+
+It will show every brand from table1 that are not in table2.
