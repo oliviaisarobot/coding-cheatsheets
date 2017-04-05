@@ -138,3 +138,18 @@ Deletes record (row) from a table where the condition is true.
 - `ALTER TABLE table_name ADD COLUMN new_column data_type;`
 
 Modifies an existing datatable.
+
+### 4. Table/data transformation
+
+We can use subqueries in a query, which will make the initial query the *outer query*, and the subquery the *inner query*. The inner query can be either from a different or the same database.
+
+- `SELECT * FROM table1 WHERE value1 > (SELECT AVG(value2) FROM table1 WHERE value2 = 3);`
+
+In *non-correlated subqueries*, the dubquery can be used independently from the outer query.
+
+In *correlated subqueries*, the inner query cannot be run independently from the outer query. Each row that is being proccessed for the outer query, will also be proccessed for the inner query.
+
+### 5. Set operations
+
+
+
