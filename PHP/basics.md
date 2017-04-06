@@ -98,7 +98,7 @@ essentially the same as echo, more characters and slower, also works like a func
 `return`
 doesn't display the value, just readies it
 
-### STRING FUNCTIONS
+### String functions
 
 `strlen(string);`
 length
@@ -133,7 +133,7 @@ adds slashes to certain strings to escape characters, so the value is not execut
 `stripslashes(string)`
 strips slashes, so the value might be executed as code
 
-### ARRAY FUNCTIONS
+### Array functions
 
 `$array = array("a", "b", "c");`
 
@@ -141,13 +141,15 @@ strips slashes, so the value might be executed as code
 
 `$array[0] = "x";`
 
+`count($array);`
+
+prints out the length of the array
+
 `print_r($array)`
 
 this prints out all items of the array, including their keys
 
 `array_push($arrayname, item);`
-
-`count($arrayname);`
 
 `sort($arrayname);`
 
@@ -157,26 +159,12 @@ reverse sort
 `join(", ", $arrayname);`
 joins sorted (or any) array items into a string
 
-### OTHER FUNCTIONS
-
-`rand();`
-random whole number
-
-`rand(0, 10);`
- random whole number between min and max value
-
-`round(num);`
-rounds down a floating number
-
-`round(num, 3);`
-rounds down a floating number to 3 decimals
-
-### CUSTOM FUNCTIONS
+### Custom functions
 
 `function name(params) {};`
 `name();`
 
-### OBJECTS
+### Objects
 
 ```PHP
 class Name {
@@ -198,11 +186,11 @@ boolean, property exists on an object
 `method_exists($obj, methodstring);`
 boolean, method exists on an object
 
-### INHERITANCE
+### Inheritance
 
 `class Something{}`
 `class Another extends Something{}`
-  class inherits from the class it extends
+class inherits from the class it extends
 
 -prefix: *final*: indicates that a certain variable or function cannot be overridden by children or subclasses
 
@@ -223,7 +211,7 @@ scope resolution operator
 -prefix *static*: allows access to vars and functions without initiating
 }
 
-### ASSOCIATIVE ARRAY
+### Associative array
 
 ```PHP
 $array = array(2012, 'BMW', 'blue');
@@ -235,7 +223,7 @@ echo $assocArray['year'] // returns 2012
 ```
 allows you to change the key of each value in the array, can no longer access values by key number
 
-### MULTIDIMENSIONAL ARRAY
+### Multidimensional array
 
 ```PHP
 $food = array(
@@ -255,7 +243,7 @@ foreach($food as $element => $inner_array) {
 ```
 nested arrays, works like jsons
 
-### INCLUDE AND REQUIRE
+### Imclude and require
 
 `include('header.inc.php');`
 works the same as
@@ -279,7 +267,7 @@ works the same as
 
 these limit the amount of times something can be loaded into the web page, if it has already been required, it won't load again
 
-## Time and date formatting
+### Time and date formatting
 
 `echo time();` or `date('U');`
 
@@ -323,6 +311,40 @@ time formatting options:
 `strtotime('last Monday');`
 
 `strtotime('next Friday');`
+
+### Random numbers
+
+`rand();`
+random whole number
+
+`rand(0, 10);`
+ random whole number between min and max value (inclusive)
+ 
+ `getrandmax();`
+ returns the highest random number the generator uses
+ 
+ ```php
+ <?php
+ if (isset($_POST['roll']) {
+     $rand = rand(1, 6);
+     echo 'You rolled '.$rand;
+ }
+ ?>
+ 
+ <form action="thisfile.php" method="POST">
+     <input type="submit" name="roll" value="Roll the dice">
+ </form>
+ ```
+ 
+ 
+ 
+ ### Rounding numbers
+
+`round(num);`
+rounds down a floating number
+
+`round(num, 3);`
+rounds down a floating number to 3 decimals
 
 ### SQL
 
