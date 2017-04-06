@@ -279,6 +279,51 @@ works the same as
 
 these limit the amount of times something can be loaded into the web page, if it has already been required, it won't load again
 
+## Time and date formatting
+
+`echo time();` or `date('U');`
+
+this returns the *unix epoch* or *POSIX*, a large integer which represents the amount of seconds passed since 1st January 1970, usually useful for keeping track of how much time has passed between two timestamps
+
+```php
+$time = time();
+$actual_time = date('H:i:s', $time);
+
+echo 'Current time: ' .$actual_time;
+```
+
+the *date* function helps us format the current time, the first argument is the pattern, the second is the time we logged
+running the date function alone with just formatting, it will return the current time
+
+`date('Y/M/d/S');`
+
+date formatting options:
+- `Y` stands for year (4 digits), lowecase returns last 2 digits
+- `m` stands for month (1-12), capital returns month as short text (Jan-Dec)
+- `F` returns the month as full text (January)
+- `d` stands for day (1-31), capital returns day as short text (Mon-Sun)
+- `l` lowercase L stands for day of the week, full text (Sunday-Saturday)
+- `S` English official suffix for the day (st, nd, rd, th)
+- `z` day of the year (0-365)
+- `L` stands for leap year, 1 for is, 0 for isn't
+
+time formatting options:
+- `a` or `A` stand for *am* or *pm*, uppercase A for uppercase letters
+- `g` 12-hour format without leading zeros, or `G` 24-hour format without leading zeros
+- `h` 12-hour format with leading zeros, or `H` 24-hour format with leading zeros
+- `i` stands for minutes with leading zeros
+- `s` stands for seconds with leading zeros
+
+`strtotime('+1 week');`
+
+`strtotime('now');`
+
+`strtotime('+1 day 2 hours 42 seconds');`
+
+`strtotime('last Monday');`
+
+`strtotime('next Friday');`
+
 ### SQL
 
 `$conn = mysql_connect($servername, $username, $password) or die('Could not connect');`
