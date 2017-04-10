@@ -29,11 +29,15 @@
 `.`
 concat
 
-`for ($i = 0; $i < 5; $i++) {}`
-
-`foreach($array as $item) { print $item }`
-
+```php
+for ($i = 0; $i < 5; $i++) {}
 ```
+
+```php
+foreach($array as $item) { print $item }
+```
+
+```php
 if (condition) {
   // execute some command if true
 }
@@ -45,7 +49,10 @@ else {
 };
 ```
 
-`while () {};`
+```php
+while () {};
+```
+
 ```PHP
 do {
 } while ();
@@ -64,12 +71,18 @@ switch (VARIABLE) {
 ```
 cleaner way of if else statementsk
 
-`die();`
+```php
+die();
+```
 any further scripts will be stopped, you can include an error message
 
-`exit();`
+```php
+exit();
+```
 
-`preg_match('/is/', $string);`
+```php
+preg_match('/is/', $string);
+```
 *expression matching*, pattern checking within strings, evaluated to boolean
 
 ```PHP
@@ -90,79 +103,130 @@ else {
 }
 ```
 
-`echo`
+```php
+echo $var;
+```
 
-`print`
+```php
+print $var;
+```
 essentially the same as echo, more characters and slower, also works like a function print();
 
-`return`
+```php
+return
+```
 doesn't display the value, just readies it
 
 ### String functions
 
-`strlen(string);`
+```php
+strlen(string);
+```
 length
 
-`trim(string);`
+```php
+trim(string);
+```
 trims spaces from the beginning and end of a string
 
-`str_word_count(string, 0);`
+```php
+str_word_count(string, 0);
+```
 0 returns a number, 1 returns an array of key-value pairs, third argument can be the indicator of a full stop (symbol)
 
-`string_shuffled(string);`
+```php
+string_shuffled(string);
+```
 mixes up the characters of the string
 
-`strrev(string);`
+```php
+strrev(string);
+```
 reverses a string
 
-`strtoupper(string);`
+```php
+strtoupper(string);
+```
 uppercase
 
-`strtolower(string);`
+```php
+strtolower(string);
+```
 lowercase
 
-`substr(0, 1);`
+```php
+substr(0, 1);
+```
 returns a slice of a string between two indexes
 
-`similar_text(string1, string2, result);`
+```php
+similar_text(string1, string2, result);
+```
 calculates the percentage of similarity between two strings, returns a floating number
 
-`htmlentities(addslashes(string))`
+```php
+htmlentities(addslashes(string));
+```
 adds slashes to certain strings to escape characters, so the value is not executed as code
 
-`stripslashes(string)`
+```php
+stripslashes(string);
+```
 strips slashes, so the value might be executed as code
 
 ### Array functions
 
-`$array = array("a", "b", "c");`
+```php
+$array = array("a", "b", "c");
+```
 
-`$array[1];`
+```php
+$array[1];
+```
 
-`$array[0] = "x";`
+```php
+$array[0] = "x";
+```
 
-`count($array);`
+```php
+count($array);
+```
 
 prints out the length of the array
 
-`print_r($array)`
+```php
+print_r($array);
+```
 
 this prints out all items of the array, including their keys
 
-`array_push($arrayname, item);`
+```php
+array_push($arrayname, item);
+```
 
-`sort($arrayname);`
+```php
+sort($arrayname);
+```
 
-`rsort($arrayname);`
+```php
+rsort($arrayname);
+```
 reverse sort
 
-`join(", ", $arrayname);`
+```php
+join(", ", $arrayname);
+```
 joins sorted (or any) array items into a string
 
 ### Custom functions
 
-`function name(params) {};`
-`name();`
+```php
+function name(params) {};
+```
+
+```php
+name();
+```
 
 ### Objects
 
@@ -175,21 +239,34 @@ class Name {
 }
 ```
 
-`$thing = new Name(variable);`
+```php
+$thing = new Name(variable);
+```
 
-`is_a($obj, class);`
+```php
+is_a($obj, class);
+```
 boolean, object is an instance of a certain class
 
-`property_exists($obj, propertystring);`
+```php
+property_exists($obj, propertystring);
+```
 boolean, property exists on an object
 
-`method_exists($obj, methodstring);`
+```php
+method_exists($obj, methodstring);
+```
 boolean, method exists on an object
 
 ### Inheritance
 
-`class Something{}`
-`class Another extends Something{}`
+```php
+class Something{}
+```
+
+```php
+class Another extends Something{}
+```
 class inherits from the class it extends
 
 -prefix: *final*: indicates that a certain variable or function cannot be overridden by children or subclasses
@@ -245,31 +322,53 @@ nested arrays, works like jsons
 
 ### Imclude and require
 
-`include('header.inc.php');`
+```php
+include('header.inc.php');
+```
 works the same as
-`include 'header.inc.php';`
+```php
+include 'header.inc.php';
+```
 
 the file it is included in has access to the included files' variables
 
-`require('header.inc.php');`
+```php
+require('header.inc.php');
+```
 works the same as
-`require 'header.inc.php';`
+```php
+require 'header.inc.php';
+```
 
 it kills the rest of the page and no further scripts are executed if it runs into an error
 
-`include_once('header.inc.php');`
+```php
+include_once('header.inc.php');
+```
 works the same as
-`include_once 'header.inc.php';`
+```php
+include_once 'header.inc.php';
+```
 
-`require_once('header.inc.php');`
+```php
+require_once('header.inc.php');
+```
 works the same as
-`require_once 'header.inc.php';`
+```php
+require_once 'header.inc.php';
+```
 
 these limit the amount of times something can be loaded into the web page, if it has already been required, it won't load again
 
 ### Time and date formatting
 
-`echo time();` or `date('U');`
+```php
+echo time();
+```
+or
+```php
+date('U');
+```
 
 this returns the *unix epoch* or *POSIX*, a large integer which represents the amount of seconds passed since 1st January 1970, usually useful for keeping track of how much time has passed between two timestamps
 
@@ -283,7 +382,9 @@ echo 'Current time: ' .$actual_time;
 the *date* function helps us format the current time, the first argument is the pattern, the second is the time we logged
 running the date function alone with just formatting, it will return the current time
 
-`date('Y/M/d/S');`
+```php
+date('Y/M/d/S');
+```
 
 date formatting options:
 - `Y` stands for year (4 digits), lowecase returns last 2 digits
@@ -302,28 +403,44 @@ time formatting options:
 - `i` stands for minutes with leading zeros
 - `s` stands for seconds with leading zeros
 
-`strtotime('+1 week');`
+```php
+strtotime('+1 week');
+```
 
-`strtotime('now');`
+```php
+strtotime('now');
+```
 
-`strtotime('+1 day 2 hours 42 seconds');`
+```php
+strtotime('+1 day 2 hours 42 seconds');
+```
 
-`strtotime('last Monday');`
+```php
+strtotime('last Monday');
+```
 
-`strtotime('next Friday');`
+```php
+strtotime('next Friday');
+```
 
 ### Random numbers
 
-`rand();`
+```php
+rand();
+```
 random whole number
 
-`rand(0, 10);`
+```php
+rand(0, 10);
+```
  random whole number between min and max value (inclusive)
  
- `getrandmax();`
+```php
+getrandmax();
+```
  returns the highest random number the generator uses
  
- ```php
+```php
  <?php
  if (isset($_POST['roll']) {
      $rand = rand(1, 6);
@@ -335,21 +452,29 @@ random whole number
      <input type="submit" name="roll" value="Roll the dice">
  </form>
  ```
- 
- 
- 
+
  ### Rounding numbers
 
-`round(num);`
+```php
+round(num);
+```
 rounds down a floating number
 
-`round(num, 3);`
+```php
+round(num, 3);
+```
 rounds down a floating number to 3 decimals
 
 ### SQL
 
-`$conn = mysql_connect($servername, $username, $password) or die('Could not connect');`
+```php
+$conn = mysql_connect($servername, $username, $password) or die('Could not connect');
+```
 
-`$result = mysql_query($connection, $query);`
+```php
+$result = mysql_query($connection, $query);
+```
 
-`$query = 'SELECT something FROM datatable';`
+```php
+$query = 'SELECT something FROM datatable';
+```
