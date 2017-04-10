@@ -279,7 +279,8 @@ class Immortal extends Person {
 }
 
 if (Immortal::alive) {
-  echo "I live forever!"
+  echo "I live forever!";
+}
 ```
 
 `::`
