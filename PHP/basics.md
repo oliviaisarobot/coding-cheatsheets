@@ -29,7 +29,7 @@
 `.`
 concat
 
-`for ($i = 0; i < 5; i++) {}`
+`for ($i = 0; $i < 5; $i++) {}`
 
 `foreach($array as $item) { print $item }`
 
