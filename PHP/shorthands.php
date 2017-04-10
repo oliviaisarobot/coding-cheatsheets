@@ -13,7 +13,7 @@ end for;
 //Shorthand way of the foreach loop
 foreach ($array as $key=>$value):
    //Do something;
-endforeach;
+end foreach;
 
 //Another way of If/else:
 if ($x > 10):
