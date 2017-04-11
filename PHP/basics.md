@@ -174,6 +174,20 @@ stripslashes(string);
 ```
 strips slashes, so the value might be executed as code
 
+```php
+$string = "one two three four five";
+$array = explode(' ', $string);
+```
+returns an array of a string that was split into pieces, takes 2 arguments, first is the divider between the split parts (whitespace, comma etc.), second is the string you want to perform *explode* on
+
+```php
+$data = "foo:*:1023:1000::/home/foo:/bin/sh";
+list($user, $pass, $uid, $gid, $gecos, $home, $shell) = explode(":", $data);
+echo $user; // foo
+echo $pass; // *
+```
+you can also immediately turn the split parts into values of different variables with the *list()* function
+
 ### Array functions
 
 ```php
