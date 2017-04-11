@@ -335,7 +335,7 @@ foreach($food as $element => $inner_array) {
 ```
 nested arrays, works like jsons
 
-### Imclude and require
+### Include and require
 
 ```php
 include('header.inc.php');
