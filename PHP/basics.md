@@ -1,5 +1,21 @@
 # PHP Cheatsheet
 
+## Table of content
+1. [General information](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/basics.md#general-information)
+2. [PHP syntax](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/basics.md#php-syntax)
+3. [String functions](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/basics.md#string-functions)
+4. [Array functions](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/basics.md#array-functions)
+5. [Custom functions](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/basics.md#custom-functions)
+6. [Objects](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/basics.md#objects)
+7. [Inheritance](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/basics.md#inheritance)
+8. [Associative array](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/basics.md#associative-array)
+9. [Multidimensional array](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/basics.md#multidimensional-array)
+10. [Include and require](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/basics.md#include-and-require)
+11. [Time and date formatting](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/basics.md#time-and-date-formatting)
+12. [Random numbers](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/basics.md#random-numbers)
+13. [Rounding numbers](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/basics.md#rounding-numbers)
+14. [SQL](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/basics.md#sql)
+
 ## General information
 
 - php is an object-oriented programming language
