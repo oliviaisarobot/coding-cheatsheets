@@ -151,7 +151,7 @@ str_word_count(string, 0);
 0 returns a number, 1 returns an array of key-value pairs, third argument can be the indicator of a full stop (symbol)
 
 ```php
-string_shuffled(string);
+str_shuffle(string);
 ```
 mixes up the characters of the string
 
@@ -247,6 +247,11 @@ reverse sort
 join(", ", $arrayname);
 ```
 joins sorted (or any) array items into a string
+
+```php
+shuffle($arrayname);
+```
+randomizes the order of the items in an array
 
 ### Custom functions
 
