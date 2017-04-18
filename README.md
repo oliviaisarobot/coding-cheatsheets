@@ -7,6 +7,7 @@ A little collection of notes regarding my studies of different programming langu
 ## JavaScipt
 
 - [Angular 2](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/JS/angular2.md)
+- [JQuery](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/JS/jquery.md)
 
 ## PHP
 
