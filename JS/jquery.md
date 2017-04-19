@@ -184,9 +184,9 @@ you can rewrite the text/innerHtml of a DOM element
 ##### CSS attributes
 
 ```javascript
-$('div').height('100px;);
+$('div').height('100px');
 
-$('div').width('150px;);
+$('div').width('150px');
 
  $('div').css('background-color','#000000');
 ```
