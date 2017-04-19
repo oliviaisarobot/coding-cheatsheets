@@ -57,6 +57,14 @@ $(document).ready(function() {
 
 when there are multiple elements selected, such as all divs, the event handler will only apply the effect on the currently clicked/mouseover etc. one if we use the keyword *this*
 
+```javascript
+$('input[name=complaintField]').val();
+
+$('input:checkbox:checked').val(); // this will select the values of the the checked checkboxes
+```
+
+the function `.val()` is used to get input values of form elements, such as *input*, *select* and *textarea*
+
 ### Variables
 
 ```javascript
@@ -136,6 +144,8 @@ $('div').fadeToggle();
 ```javascript
 $('div').addClass('lookAtMe');
 
+$('div').removeClass('lookAtMe');
+
 $('div').toggleClass('hover');
 ```
 
@@ -147,6 +157,8 @@ $('div').prepend(); // adds a child element to the beginning of the array
 $().prependTo('div');
 
 $('div').append(); // adds a child element to end of the array
+
+$('.list').append('<div class="item">' + toAdd + '</div>');
 
 $().appendTo('div');
 
@@ -161,6 +173,22 @@ ways of adding new DOM elements to the document
 $('div').remove(); // deletes a DOM element
 
 $('div').empty(); // deletes all content, including child elements
+```
+
+```javascript
+$('div').html('some text');
+```
+
+you can rewrite the text/innerHtml of a DOM element
+
+##### CSS attributes
+
+```javascript
+$('div').height('100px;);
+
+$('div').width('150px;);
+
+ $('div').css('background-color','#000000');
 ```
 
 #### Multiple events on the same element
