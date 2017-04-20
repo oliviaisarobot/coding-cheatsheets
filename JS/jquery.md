@@ -84,10 +84,41 @@ you can define variables the same way as in javascript, if we store jQuery objec
 ```javascript
 $('div').click();
 
-$('div').mouseenter(); // equivalent to hover
+$('div').mouseenter();
 
 $('div').mouseleave();
+
+$('div').hover(); // mouseenter and mouseleave put together
+
+$('div').dblclick(); // double click
+
+$('div').focus(); // applies effect to elements that can be focused, such as textarea or input fields
+
+$('div').keydown(); // element has to be focused to register the keydown, optional one argument to determine which key was pressed
 ```
+
+all of these can trigger events, they can take functions as an argument, multiple functions must be separated by `,` commas
+
+```javascript
+$(document).keydown(function(key) {
+  switch(parseInt(key.which,10)) {
+	  case 37: // left arrow key
+		  $('img').animate({left: "-=10px"}, 'fast');
+			break;
+		case 38: // up arrow key
+			$('img').animate({top: "-=10px"}, 'fast');
+			break;
+		case 39: // right arrow key
+			$('img').animate({left: "+=10px"}, 'fast');
+			break;
+		case 40: // down arrow key
+			$('img').animate({top: "+=10px"}, 'fast');
+			break;
+		}
+	});
+```
+
+simple keydown switch function
 
 ```javascript
 $('#helloBtn').click(function(event) {
@@ -137,6 +168,8 @@ $('div').toggle(); // optional parameter is speed: 'slow' or 900
 $('div').slideToggle();
 
 $('div').fadeToggle();
+
+$('div').animate({left:'+=10px'}, 500); // takes 2 arguments, a CSS transformation and the time it takes to perform the animation, here 0.5s
 ```
 
 #### Manipulating DOM elements
@@ -188,7 +221,7 @@ $('div').height('100px');
 
 $('div').width('150px');
 
- $('div').css('background-color','#000000');
+$('div').css('background-color','#000000');
 ```
 
 #### Multiple events on the same element
@@ -206,3 +239,7 @@ $('div').on({
     }
 });
 ```
+
+
+
+
