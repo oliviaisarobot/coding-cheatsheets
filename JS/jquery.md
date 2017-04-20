@@ -88,37 +88,16 @@ $('div').mouseenter();
 
 $('div').mouseleave();
 
-$('div').hover(); // mouseenter and mouseleave put together
+$('div').hover(); // mouseenter+mouseleave
 
-$('div').dblclick(); // double click
+$('div').focus(); // only works on focusable elements, such as texarea or input fields
 
-$('div').focus(); // applies effect to elements that can be focused, such as textarea or input fields
+$('div').keydown(); // element has to be focused for it to work, keydown can be put on the document as well, optional one argument to determine which key was pressed
 
-$('div').keydown(); // element has to be focused to register the keydown, optional one argument to determine which key was pressed
+$(document).keydown(key);
 ```
 
-all of these can trigger events, they can take functions as an argument, multiple functions must be separated by `,` commas
-
-```javascript
-$(document).keydown(function(key) {
-	switch(parseInt(key.which,10)) {
-		case 37: // left arrow key
-		  	$('img').animate({left: "-=10px"}, 'fast');
-			break;
-		case 38: // up arrow key
-			$('img').animate({top: "-=10px"}, 'fast');
-			break;
-		case 39: // right arrow key
-			$('img').animate({left: "+=10px"}, 'fast');
-			break;
-		case 40: // down arrow key
-			$('img').animate({top: "+=10px"}, 'fast');
-			break;
-	}
-});
-```
-
-simple keydown switch function
+these can trigger events
 
 ```javascript
 $('#helloBtn').click(function(event) {
@@ -169,7 +148,7 @@ $('div').slideToggle();
 
 $('div').fadeToggle();
 
-$('div').animate({left:'+=10px'}, 500); // takes 2 arguments, a CSS transformation and the time it takes to perform the animation, here 0.5s
+$('div').animate({left:'+=10px'}, 500); // takes 2 arguments, a CSS transformation, and the time it takes to perform it, here 0.5s
 ```
 
 #### Manipulating DOM elements
@@ -239,7 +218,3 @@ $('div').on({
     }
 });
 ```
-
-
-
-
