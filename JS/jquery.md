@@ -101,9 +101,9 @@ all of these can trigger events, they can take functions as an argument, multipl
 
 ```javascript
 $(document).keydown(function(key) {
-  switch(parseInt(key.which,10)) {
-	  case 37: // left arrow key
-		  $('img').animate({left: "-=10px"}, 'fast');
+	switch(parseInt(key.which,10)) {
+		case 37: // left arrow key
+		  	$('img').animate({left: "-=10px"}, 'fast');
 			break;
 		case 38: // up arrow key
 			$('img').animate({top: "-=10px"}, 'fast');
@@ -114,8 +114,8 @@ $(document).keydown(function(key) {
 		case 40: // down arrow key
 			$('img').animate({top: "+=10px"}, 'fast');
 			break;
-		}
-	});
+	}
+});
 ```
 
 simple keydown switch function
