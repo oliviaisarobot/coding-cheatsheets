@@ -94,10 +94,30 @@ $('div').focus(); // only works on focusable elements, such as texarea or input 
 
 $('div').keydown(); // element has to be focused for it to work, keydown can be put on the document as well, optional one argument to determine which key was pressed
 
-$(document).keydown(key);
 ```
 
 these can trigger events
+
+```javascript
+$(document).keydown(function(key) {
+  switch(parseInt(key.which,10)) {
+    case 37: // left arrow key
+      $('img').animate({left: "-=10px"}, 'fast');
+      break;
+    case 38: // up arrow key
+      $('img').animate({top: "-=10px"}, 'fast');
+      break;
+    case 39: // right arrow key
+      $('img').animate({left: "+=10px"}, 'fast');
+      break;
+    case 40: // down arrow
+      $('img').animate({top: "+=10px"}, 'fast');
+      break;
+  };
+});
+```
+
+simple keydown switch
 
 ```javascript
 $('#helloBtn').click(function(event) {
