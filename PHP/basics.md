@@ -21,6 +21,7 @@
 - php is an object-oriented programming language
 - php is a scripting language
 - standard indentation for php is 4 spaces
+- this information is based on PHP 5.6 and PHP 7 standards and taken from various tutorials, and compared to the [offical PHP manual](http://php.net/manual/en/)
 
 ### PHP syntax
 
@@ -422,6 +423,10 @@ running the date function alone with just formatting, it will return the current
 date('Y/M/d/S');
 ```
 
+```php
+date(H:i:s);
+```
+
 date formatting options:
 - `Y` stands for year (4 digits), lowecase returns last 2 digits
 - `m` stands for month (1-12), capital returns month as short text (Jan-Dec)
@@ -500,6 +505,35 @@ rounds down a floating number
 round(num, 3);
 ```
 rounds down a floating number to 3 decimals
+
+### Superglobal variables
+
+A variable being superglobal means that they are available in all scopes throughout the script. The basic superglobals are the following:
+
+```php
+$GLOBALS
+$_SERVER
+$_GET
+$_POST
+$_FILES
+$_COOKIE
+$_SESSION
+$_REQUEST
+$_ENV
+```
+
+The `$_GLOBALS[]` is used to store global variables in an array. Those variables can have their own values assigned elsewhere. The assigned values will be accessible through the `$_GLOBALS['varname']` anywhere in the code. Within the array, you don't need to use the `$` indicator.
+
+```php
+$_GLOBALS['myname'];
+$myname = 'olivia';
+```
+
+The `$_SERVER` superglobal
+
+```php
+$_SERVER[];
+```
 
 ### SQL
 
