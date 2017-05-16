@@ -1,6 +1,6 @@
 # Cron
 
-Cron lets you execute commands at a specified time, on Unix-like operating systems. Cron is a daemon, it has to be started once, and will lay dormant until it is required.
+Cron lets you execute commands at a specified time, on Unix-like operating systems. Cron is a daemon, it has to be started once, and will lay dormant until it is required. It is also used to execute schedules commands on linux servers.
 
 `sudo crontab -e`
 
