@@ -549,7 +549,7 @@ $result = mysql_query($connection, $query);
 $query = 'SELECT something FROM datatable';
 ```
 
-* extensive SQL code examples [HERE](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/SQL/basics.md)
+* extensive SQL syntax explanation and examples [HERE](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/SQL/basics.md)
 * PHP SQL query example [HERE](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/queryexample.php)
 
 ### Built-in webserver
