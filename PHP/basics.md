@@ -259,10 +259,9 @@ randomizes the order of the items in an array
 ```php
 function addition($param1, $param2) {
   if ( !is_numeric($param1) || !is_numeric($param2) {
-    echo('Both parameters have to be numbers to perform addition.');
+    return("Both parameters have to be numbers to perform addition.");
   } else {
-    $result = $param1 + $param2;
-    echo("The result is: ".$result);
+    return $param1 + $param2;
   }
 };
 ```
