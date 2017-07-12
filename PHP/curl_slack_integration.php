@@ -1,3 +1,5 @@
+<?php
+
 // include this php function in your file to easily send messages to your Slack webhooks
 
 public function sendToSlack($channelname, $username, $message, $webhookurl) {
@@ -22,3 +24,5 @@ public function sendToSlack($channelname, $username, $message, $webhookurl) {
   
   curl_close($curl);
 }
+
+?>
