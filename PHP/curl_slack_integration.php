@@ -25,4 +25,6 @@ public function sendToSlack($channelname, $username, $message, $webhookurl) {
   curl_close($curl);
 }
 
+// to be updated with more variations
+
 ?>
