@@ -15,6 +15,7 @@
 12. [Random numbers](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/basics.md#random-numbers)
 13. [Rounding numbers](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/basics.md#rounding-numbers)
 14. [SQL](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/basics.md#sql)
+15. [Slack integration with cUrl](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/basics.md#slack-integration-with-curl)
 
 ## General information
 
@@ -562,3 +563,35 @@ $query = 'SELECT something FROM datatable';
 ### Built-in webserver
 
 More info [HERE](http://php.net/manual/en/features.commandline.webserver.php)
+
+### Slack integration with cUrl
+
+To send messages to Slack webhooks, include a similar function:
+
+```php
+public function sendToSlack($channelname, $username, $message, $webhookurl) {
+  $payload = [
+    'channel' => $channelname,
+    'username' => $username,
+    'text' => $message
+  ];
+  
+  $data = json_encode($payload);
+  
+  $curl = curl_init();
+  curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($curl, CURLOPT_URL, $webhookurl);
+  curl_setopt($curl, CURLOPT_POSTFIELDS, array('payload' => $data));
+  
+  $result = curl_exec($curl);
+  
+  if (!$result) {
+    die('Error: ' . curl_error($curl));
+  }
+  
+  curl_close($curl);
+}
+
+```
+
+Example [HERE](https://github.com/oliviaisarobot/coding-cheatsheets/blob/master/PHP/curl_slack_integration.php)
