@@ -89,6 +89,10 @@ GROUP BY column_2;`
 
 This example returns the highest value of column_1 for each unique value of column_2, eg. select the best selling music album of each genre.
 
+- `SELECT REPLACE(column_name, pattern, replacement) FROM table_name;`
+
+This example is used to replace parts of strings, pattern can be a specific string (of even multiple characters), replacement is the new string or an empty string.
+
 #### 3.2 Multiple tables
 
 - `PRIMARY KEY` and `FOREIGN KEY`
