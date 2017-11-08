@@ -155,6 +155,32 @@ end
 
 protected methods are accessible from subclasses
 
+### 2.5. Method aliases
+
+the intro method can also be called under the name info, alias also keeps the old methods accessible even if the method is later redefined
+
+```ruby
+alias info intro
+```
+
+## Catching errors
+
+```ruby
+begin
+  # some method
+rescue
+  puts "Error occured"
+end
+```
+
+```ruby
+begin
+  #some method
+rescue StandardError => e
+  puts "Error: #{e}"
+end
+```
+
 ## Metaprogramming
 
 there are multiple ways to write code that "writes itself", one way is catching methods that are not yet written, the software will instead throw and error and warn you about the missing method:
@@ -165,7 +191,7 @@ def method_missing(:method, *args)
 end
 ```
 
-another way is redefining classes
+another way is redefining classes if it doesn't exactly do what you want, but you want to leave the original intact and just override certain things in it
 
 ```ruby
 Fruit.class_eval do
