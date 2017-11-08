@@ -1,10 +1,21 @@
-# Ruby
+# Ruby basics
 
-## 1. Basics
+## 1. General information
 
 - in Ruby, everything is an object
 
-## 1.1. Defining classes
+### 1.1. Ruby syntax
+
+```ruby
+  = define
+  << concat
+```
+
+### 1.2. Logical expression
+
+loops, if, switch
+
+## 2. Defining classes
 
 the `@name` is a global variable within the class
 
@@ -16,7 +27,7 @@ class Fruit
 end
 ```
 
-this creates getter and setter method for retrieving name
+this creates getter and setter method for retrieving name, the methods work on the instance
 
 ```ruby
 def name
@@ -42,7 +53,31 @@ creating an instance of the Fruit class:
 alma = Fruit.new 'alma'
 ```
 
-#### 1.1.1. Interpolation
+there are static methods that are only accessible through the class
+
+```ruby
+def self.create(fruits)
+  result = []
+  fruits.each_key do |key|
+    result.push Fruit.new(key.to_s, fruits[key])
+  end
+  result
+end
+```
+
+this will output an associated array of the objects created
+
+```ruby
+fruits = {
+  apple: 'sour',
+  pear: 'sweet
+}
+
+my_fruits = Fruite.create(fruits)
+puts my_fruits.inspect
+ ```
+
+### 2.1. Interpolation
 
 ```ruby
 #{}
@@ -56,7 +91,7 @@ def intro
 end
 ```
 
-#### 1.1.2. Passing hashes to a method
+### 2.2. Passing hashes to a method
 
 ```ruby
 def into(like, options={})
@@ -79,7 +114,7 @@ alma.intro "I don't like it", person: 'Peter' do |str|
 end
 ```
 
-### 1.2. Inheritance
+### 2.3. Inheritance
 
 ```ruby
 class Plant
@@ -94,3 +129,31 @@ end
 ```
 
 the Fruit class here inherits every method and variable from the Plant
+
+### 2.4. Public and private methods
+
+public and private are switches, everything beneath will fall under the rule. in the example, 
+method_3 can only be called from within the class
+
+```ruby
+class Fruit
+  def method_1
+    # somehing
+  end
+  
+  def method_2
+    # something
+   end
+   
+private
+
+  def method_3
+    # something
+   end
+end
+```
+
+protected methods are accessible from subclasses
+
+
+
