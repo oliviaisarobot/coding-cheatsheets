@@ -163,6 +163,34 @@ the intro method can also be called under the name info, alias also keeps the ol
 alias info intro
 ```
 
+### 2.6. Modules
+
+modules define namespaces and double as mixins, you can include them in your classes, or keep certain classes in the same namespace
+
+```ruby
+module Backwards
+  def backwards
+  
+  end
+end
+
+class Fruit
+  include Backwards
+  
+  # now i can call the Backwards module's methods!
+end
+```
+
+this reserves the namespaces and creates a separate Fruit class
+
+```ruby
+module Moon
+  class Fruit
+  
+  end
+end
+```
+
 ## Catching errors
 
 ```ruby
