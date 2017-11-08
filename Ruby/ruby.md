@@ -155,5 +155,24 @@ end
 
 protected methods are accessible from subclasses
 
+## Metaprogramming
 
+there are multiple ways to write code that "writes itself", one way is catching methods that are not yet written, the software will instead throw and error and warn you about the missing method:
 
+```ruby
+def method_missing(:method, *args)
+  puts "You have called a missing method: #{method}"
+end
+```
+
+another way is redefining classes
+
+```ruby
+Fruit.class_eval do
+  private
+   
+  def worm
+    "This is redefined to worm"
+  end
+end
+```
