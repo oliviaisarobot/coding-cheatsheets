@@ -144,7 +144,9 @@ creates a controller named `home`, rails will also advise you if it thinks you s
 
 ## 5. Rails console
 
-`WIP`
+We can open up a rails console through docker. In the console, you can run ruby scripts directly
+
+`docker-compose run web rails c`
 
 ## 6. Gems
 
