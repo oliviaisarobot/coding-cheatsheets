@@ -116,3 +116,16 @@ Email sender component.
 #### 3.2.6. Jobs
 
 Jobs to be run in the background, anything that can be executed asyncronously by a worker.
+
+## 4. Database
+
+`docker-compose run web rake db:create`
+
+command to create the database
+
+## 5. Creating new components
+
+
+
+## 6. Rails console
+
