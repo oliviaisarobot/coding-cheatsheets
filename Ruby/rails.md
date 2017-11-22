@@ -83,11 +83,24 @@ the app is now ready to boot
 
 `docker-compose up`
 
+### 2.2 Rake
+
+Rake executes tasks we set up for the application.
+
+`docker-compose run web rake routes`
+
+this returns the currently available routes
+
+`docker-compose run web rake db:migrate`
+
+after creating new migrations, it is necessary to tell rake to execute the migrations before we proceed to run the application again
+
 ## 3. The directory
 
 ### 3.1. Config
 
-Environment and other settings.
+- environments (production, development, test)
+- routes: available routes in the application, generated components are automatically added here
 
 ### 3.2. App
 
@@ -125,7 +138,21 @@ command to create the database
 
 ## 5. Creating new components
 
+`docker-compose run web rails g controller home`
 
+creates a controller named `home`, rails will also advise you if it thinks you should create other related components as well
+
+`docker-compose run web rails g views:home`
 
 ## 6. Rails console
 
+
+## 7. Gems
+
+### 7.1. Devise
+
+User management component.
+
+`docker-compose run web rails g devise User`
+
+creates a devise component for the user, automatically generates the related models, controllers and migrations
