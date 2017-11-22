@@ -103,7 +103,7 @@ This contains the javascript/coffeescript and the stylesheets, images and fonts 
 
 #### 3.2.3. Controllers
 
-`application_controller.rb` an abstract controller
+`application_controller.rb` an the base parent controller
 
 #### 3.2.4. Views
 
