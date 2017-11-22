@@ -2,7 +2,7 @@
 
 Source: https://docs.docker.com/compose/rails/#build-the-project
 
-## Installing
+## 1. Installing
 
 - Dockerfile
 
@@ -46,7 +46,12 @@ services:
       - db
 ```
 
-## Create new project
+## 2. Create new project
 
 `docker-compose run web rails new . --force --database=postgresql`
+
+the project is now created in your folder, but all files are owned by *root*, so you need to overwrite them to your username to be able to edit them
+
+`sudo chown -R $USER:$USER .`
+
 
