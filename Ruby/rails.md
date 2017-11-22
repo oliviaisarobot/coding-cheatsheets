@@ -138,6 +138,10 @@ Jobs to be run in the background, anything that can be executed asyncronously by
 
 `docker-compose run web rails g controller home`
 
+`docker-compose run web rails g model tag name:string`
+
+`docker-compose run web post_tag post_id:integer tag_id:integer`
+
 creates a controller named `home`, rails will also advise you if it thinks you should create other related components as well
 
 `docker-compose run web rails g views:home`
