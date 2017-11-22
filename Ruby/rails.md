@@ -91,6 +91,10 @@ Rake executes tasks we set up for the application.
 
 this returns the currently available routes
 
+`docker-compose run web rake db:create`
+
+command to create the database
+
 `docker-compose run web rake db:migrate`
 
 after creating new migrations, it is necessary to tell rake to execute the migrations before we proceed to run the application again
@@ -130,13 +134,7 @@ Email sender component.
 
 Jobs to be run in the background, anything that can be executed asyncronously by a worker.
 
-## 4. Database
-
-`docker-compose run web rake db:create`
-
-command to create the database
-
-## 5. Creating new components
+## 4. Creating new components
 
 `docker-compose run web rails g controller home`
 
@@ -144,12 +142,15 @@ creates a controller named `home`, rails will also advise you if it thinks you s
 
 `docker-compose run web rails g views:home`
 
-## 6. Rails console
+## 5. Rails console
 
+`WIP`
 
-## 7. Gems
+## 6. Gems
 
-### 7.1. Devise
+Gems are predefined micro applications created for ruby
+
+### 6.1. Devise
 
 User management component.
 
