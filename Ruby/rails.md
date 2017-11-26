@@ -56,6 +56,8 @@ the project is now created in your folder, but all files are owned by *root*, so
 
 `sudo chown -R $USER:$USER .`
 
+Note: if you are running Docker for Windows, the files are created under your current username!
+
 ### 2.1. Database
 
 the database configurations are stored in `config/database.yml`, its contents need to be replaced
