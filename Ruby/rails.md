@@ -165,3 +165,80 @@ User management component.
 `docker-compose run web rails g devise User`
 
 creates a devise component for the user, automatically generates the related models, controllers and migrations
+
+### 6.2 Aasm
+
+State machine management gem.
+
+```ruby
+include AASM
+
+[...]
+
+aasm do
+      state :in_stock, initial: true
+      state :sold_out
+
+      event :move_out_of_stock do
+        transitions from: [:in_stock], to: :sold_out
+      end
+
+      event :restock do
+        transitions from: [:sold_out], to: :in_stock
+      end
+    end
+```  
+
+### 6.3 Audited
+
+Logs every change of the object. Ability yo restore previous versions.
+
+`audited`
+
+### 6.4. Paranoia
+
+Delete command does not actually delete objects, just flags them as deleted.
+
+`acts_as_paranoid`
+
+### 6.5. Puma
+
+Webserver.
+
+### 6.6. Uglifier
+
+Javascript minifier.
+
+### 6.7. Byebug
+
+Stops executing the script at a certain point and we can investigate issues.
+
+### 6.8. Factory girl
+
+Mocks objects and entities in the application for testing purposes.
+
+### 6.9. Rspec rails
+
+Write test for entities.
+
+```ruby
+require 'rails_helper'
+require 'spec_helper'
+
+RSpec.describe Stock::Keyword, type: :model do
+  context 'Keywords in multiple languages' do
+    I18n.available_locales.each do |lang|
+      it "can be created in #{lang}" do
+        I18n.locale = lang
+        keyword_sample = create :stock_keyword
+        expect(keyword_sample).to eq Stock::Keyword.last
+      end
+    end
+  end
+end
+```
+
+### 6.10. Tzinfo
+
+Time zone information.
+
