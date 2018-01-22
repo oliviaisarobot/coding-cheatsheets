@@ -85,6 +85,12 @@ the app is now ready to boot
 
 `docker-compose up`
 
+beware, the containers will not be emptied even if you seemingly terminate the run in the command line with Ctrl+C. to properly unmount previous projects, use
+
+`docker-compose down`
+
+and then you will be able to mount another project!
+
 ### 2.2 Rake
 
 Rake executes tasks we set up for the application.
