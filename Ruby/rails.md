@@ -160,6 +160,29 @@ We can open up a rails console through docker. In the console, you can run ruby 
 
 `docker-compose run web rails c`
 
+Warning: console might not always work as expected with Git Bash for Windows!
+
+### 5.1. Create new user through console
+
+`e=Business::Employee.new`
+
+Define a variable.
+
+```
+e.email=""
+e.uid=""
+e.password=""
+e.password_confirmation=""
+e.name=""
+e.role_class=""
+```
+
+Set the required parameters.
+
+`e.save!`
+
+You should see the db insert output.
+
 ## 6. Gems
 
 Gems are predefined micro applications created for ruby
