@@ -230,3 +230,17 @@ Fruit.class_eval do
   end
 end
 ```
+
+## Loops and memory
+
+```ruby
+each
+```
+
+loads the entire list into memory to iterate through them
+
+```ruby
+list.find_each do
+```
+
+only loads 1000 records into the memory while it's iterating 
