@@ -51,5 +51,30 @@ Speaks for itself, contains the methods that are accessible within that componen
 
 Lifecycle hooks allows you to easily control events of the instance's lifecycle, these hooks include *created*, *mounted*, *updated* and *destroyed*.
 
-### Syntax
+### Interpolation
 
+We can output our data or our methods with interpolation, which uses the "moustache" syntax (double curly braces).
+
+`{{ message }}`
+
+### Data binding
+
+Data binding allows us to bind data to different attributes of the DOM elements for example, that don't work with regular interpolation.
+
+`<a v-bind:href="url">Link</a>`
+
+or
+
+`<a :href="url">Link</a>`
+
+which is a shorthand. We can also bind events with *v-on*.
+
+`<a v-on:click="event">Link</a>`
+
+or in shorthand form:
+
+`<a @dblclick="event">Link</a>`
+
+Data binding also allows us to output html syntax that is parsed as html via *v-html*.
+
+`<p v-html="html"></p>`
