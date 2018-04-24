@@ -1,0 +1,55 @@
+# About Vue in general
+
+Vue is a Javascript framework that is roughly based on the MVVM (model-view-viewmodel) design pattern. It uses ECMAScript 5, therefore it has a browser requirement of IE8 or above. It relies on a temlate syntax to build applications.
+
+[Official documentation](https://vuejs.org/)
+
+## Installation
+
+As easy as including the library:
+
+`<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>`
+
+But it's important to examine the different builds, as we have to include different versions for development and production, more info [here](https://vuejs.org/v2/guide/installation.html). Generally, it is recommended to install it via npm.
+
+`npm install vue`
+
+It also offers a client (much like Angular), which agrants access to quick and easy build tools.
+
+`npm install --global vue-cli`
+
+## The Vue instance
+
+In our index html file, we create a container for our root Vue instance, a base of our entire component system.
+
+```
+<div id="app"></div>
+```
+
+The corresponding Javascript might look like:
+
+```
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello world!'
+  }
+})
+```
+
+### Component parts
+
+#### Data
+
+The data part of the Vue instance contains properties to be displayed or manipulated. Whenever it changes, the DOM is re-rendered.
+
+#### Methods
+
+Speaks for itself, contains the methods that are accessible within that component.
+
+#### Hooks
+
+Lifecycle hooks allows you to easily control events of the instance's lifecycle, these hooks include *created*, *mounted*, *updated* and *destroyed*.
+
+### Syntax
+
