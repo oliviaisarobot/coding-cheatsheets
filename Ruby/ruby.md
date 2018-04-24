@@ -234,13 +234,13 @@ end
 ## Loops and memory
 
 ```ruby
-each
+list.each
 ```
 
-loads the entire list into memory to iterate through them
+activerecord loads the all records into memory to iterate through them
 
 ```ruby
 list.find_each do
 ```
 
-only loads 1000 records into the memory while it's iterating 
+loads records into the memory in batches (of a defined batch size) while it's iterating, to save memory!
