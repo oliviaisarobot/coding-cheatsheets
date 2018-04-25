@@ -57,9 +57,13 @@ We can output our data or our methods with interpolation, which uses the "mousta
 
 `{{ message }}`
 
-### Data binding
+It can also be used for simple Javascript expressions, but it will only evaluate single line expressions or ternary expressions.
 
-Data binding allows us to bind data to different attributes of the DOM elements for example, that don't work with regular interpolation.
+`{{ ok ? 'YES' : 'NO' }}`
+
+### Directives and data binding
+
+The *v-* prefix grants access to a veriety of directives. Some of these directives take arguments, and enabled data binding, which allows us to bind data to different attributes of the DOM elements. Interpolation can't be used with directives.
 
 `<a v-bind:href="url">Link</a>`
 
@@ -75,9 +79,24 @@ or in shorthand form:
 
 `<a @dblclick="event">Link</a>`
 
-Data binding also allows us to output html syntax that is parsed as html via *v-html*.
+Some directives take modifiers, in the case of *v-on* you can call *prevent*, which tells Vue to call event.preventdefault() on the event we are trying to use.
+
+`<a :click.prevent="event">Link</a>`
+
+Directives allow us to output html syntax that is parsed as html via *v-html*.
 
 `<p v-html="html"></p>`
+
+Or use logic in the html DOM through *v-if* and *v-else*.
+
+```
+<p v-if="seen">You've seen it.</p>
+<p v-else>You haven't seen it.</p>
+```
+
+### Computed properties, watchers
+
+
 
 ### Routing
 
