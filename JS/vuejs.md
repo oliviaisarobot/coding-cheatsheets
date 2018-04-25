@@ -162,7 +162,11 @@ It can also be used for simple Javascript expressions, but it will only evaluate
 
 ### Directives and data binding
 
-The *v-* prefix grants access to a veriety of directives.
+The *v-* prefix grants access to a veriety of directives. Directives don't work with the moustache syntax interpolation.
+
+Directives allow us to output html syntax that is parsed as html via *v-html*.
+
+`<p v-html="html"></p>`
 
 #### Arguments in directives
 
@@ -190,9 +194,78 @@ Some directives take modifiers, in the case of *v-on* you can call *prevent*, wh
 
 `<a :click.prevent="event">Link</a>`
 
-Directives allow us to output html syntax that is parsed as html via *v-html*.
+The available modifiers are the following:
 
-`<p v-html="html"></p>`
+- .stop
+- .prevent
+- .capture
+- .self
+- .once
+- .passive
+
+##### Key modifiers
+
+Vue provides easy ways to track keypress.
+
+`<input v-on:keyup.13="submit">`
+
+And even aliases for the most commonly used keys:
+
+```
+<input v-on:keyup.enter="submit">
+<input @keyup.enter="submit">
+```
+
+The available key aliases are the following:
+
+- .enter
+- .tab
+- .delete (captures both “Delete” and “Backspace” keys)
+- .esc
+- .space
+- .up
+- .down
+- .left
+- .right
+
+Or you can define custom aliases:
+
+```
+// enable `v-on:keyup.f1`
+Vue.config.keyCodes.f1 = 112
+```
+
+There are also modifier key aliases:
+
+- .ctrl
+- .alt
+- .shift
+- .meta
+
+`<input @keyup.ctrl.67="copy">`
+
+These will only trigger the event, if another key is pressed *while* holding the modifier key. If pressed and released alone, the modifier key will not trigger the event.
+
+- .exact
+
+In addition, the *.exact* modifier will require the exact combination to be used, to trigger the event.
+
+```
+<!-- this will fire even if Alt or Shift is also pressed -->
+<button @click.ctrl="onClick">A</button>
+
+<!-- this will only fire when Ctrl and no other keys are pressed -->
+<button @click.ctrl.exact="onCtrlClick">A</button>
+
+<!-- this will only fire when no system modifiers are pressed -->
+<button @click.exact="onClick">A</button>
+```
+
+##### Mouse button modifiers
+
+- .left
+- .right
+- .middle
 
 #### Conditional rendering
 
@@ -211,6 +284,75 @@ Using *v-show* is similar to toggling display via CSS. Which means it will alway
 #### List rendering
 
 List rendering can be done with *v-for*.
+
+```
+<ul id="example-1">
+  <li v-for="item in items">
+    {{ item.message }}
+  </li>
+</ul>
+```
+
+```
+var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  }
+})
+```
+
+List rendering also supports the usage of *index* or *key*, and has full access to parent scope properties.
+
+```
+<ul id="example-2">
+  <li v-for="(item, index) in items">
+    {{ parentMessage }} - {{ index }} - {{ item.message }}
+  </li>
+</ul>
+```
+
+```
+var example2 = new Vue({
+  el: '#example-2',
+  data: {
+    parentMessage: 'Parent',
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  }
+})
+```
+
+```
+<div v-for="(value, key) in object">
+  {{ key }}: {{ value }}
+</div>
+```
+
+```
+<div v-for="(value, key, index) in object">
+  {{ index }}. {{ key }}: {{ value }}
+</div>
+```
+
+Both *in* and *of* works as a delimiter.
+
+`item in items`
+
+`item of items`
+
+List rendering also works with a range.
+
+```
+<div>
+  <span v-for="n in 10">{{ n }} </span>
+</div>
+```
 
 #### Binding classes and styles
 
@@ -249,6 +391,47 @@ computed: {
   }
 }
 ```
+
+#### Form input bindings
+
+The *v-model* directive enabled two-way data binding. In-depth explanations and examples: [here](https://vuejs.org/v2/guide/forms.html)
+
+Two-way data-binding loads the changes immediately, except when you are using the *.lazy* modifier.
+
+```
+<!-- synced after "change" instead of "input" -->
+<input v-model.lazy="msg" >
+```
+
+Or you can typecast the input, otherwise it always returns a string:
+
+`<input v-model.number="age" type="number">`
+
+Or trim it automatically from leading and closing whitespaces:
+
+`<input v-model.trim="msg">`
+
+### Array changes
+
+They alter/mutate the original array:
+
+- push()
+- pop()
+- shift()
+- unshift()
+- splice()
+- sort()
+- reverse()
+
+While these return a new array:
+
+- filter()
+- concat()
+- slice()
+
+Whenever calling these methods on an array, the DOM will re-render. However, directly setting an item or changing the length of an array with regulat Javascript will not force a re-render.
+
+Vue also doesn't detect addition of new properties. Only properties which are initially present in the Vue instance, are reactive.
 
 ### Routing
 
