@@ -78,3 +78,70 @@ or in shorthand form:
 Data binding also allows us to output html syntax that is parsed as html via *v-html*.
 
 `<p v-html="html"></p>`
+
+### Routing
+
+`npm install vue-router --save`
+
+### Connecting to an API
+
+The most commonly used package for handling endpoints is the *axios* http client which returns promises: [Axios Github](https://github.com/axios/axios).
+
+```
+new Vue({
+  el: '#app',
+  data () {
+    return {
+      info: null
+    }
+  },
+  mounted () {
+    axios
+      .get(url)
+      .then(response => (this.info = response))
+  }
+})
+```
+
+Handling errors:
+
+```
+axios
+  .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+  .then(response => (this.info = response.data.bpi))
+  .catch(error => console.log(error))
+```
+
+And storing the state of the request in variables, so we can alter the output based on that:
+
+```
+new Vue({
+  el: '#app',
+  data () {
+    return {
+      info: null,
+      loading: true,
+      errored: false
+    }
+  },
+  filters: {
+    currencydecimal (value) {
+      return value.toFixed(2)
+    }
+  },
+  mounted () {
+    axios
+      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+      .then(response => {
+        this.info = response.data.bpi
+      })
+      .catch(error => {
+        console.log(error)
+        this.errored = true
+      })
+      .finally(() => this.loading = false)
+  }
+})
+```
+
+
