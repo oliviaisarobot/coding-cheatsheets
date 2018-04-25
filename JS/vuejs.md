@@ -51,6 +51,105 @@ Speaks for itself, contains the methods that are accessible within that componen
 
 Lifecycle hooks allows you to easily control events of the instance's lifecycle, these hooks include *created*, *mounted*, *updated* and *destroyed*.
 
+#### Computed
+
+Instead of using complex, non-declarative logic in interpolation, we can move the logic to the *computed* component of the Vue instance.
+
+```
+var vm = new Vue({
+  el: '#example',
+  data: {
+    message: 'Hello'
+  },
+  computed: {
+    // a computed getter
+    reversedMessage: function () {
+      // `this` points to the vm instance
+      return this.message.split('').reverse().join('')
+    }
+  }
+})
+```
+
+The benefit of using computed instead of methods, is that computed properties are cached based on their dependencies, and they will return a result much faster, unless their dependencies change. Same is not true for methods. In cases where we don't want caching to happen, we should always use methods.
+
+As an alternative to watched properties, you can use *computed setters*.
+
+```
+computed: {
+  fullName: {
+    // getter
+    get: function () {
+      return this.firstName + ' ' + this.lastName
+    },
+    // setter
+    set: function (newValue) {
+      var names = newValue.split(' ')
+      this.firstName = names[0]
+      this.lastName = names[names.length - 1]
+    }
+  }
+}
+```
+
+#### Watched
+
+Watchers are most useful when we would like to perform property changes through expensive operations or asynchronous calls. Vuejs.org offers an example via a question form:
+
+```
+<!-- Since there is already a rich ecosystem of ajax libraries    -->
+<!-- and collections of general-purpose utility methods, Vue core -->
+<!-- is able to remain small by not reinventing them. This also   -->
+<!-- gives you the freedom to use what you're familiar with. -->
+<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+<script>
+var watchExampleVM = new Vue({
+  el: '#watch-example',
+  data: {
+    question: '',
+    answer: 'I cannot give you an answer until you ask a question!'
+  },
+  watch: {
+    // whenever question changes, this function will run
+    question: function (newQuestion, oldQuestion) {
+      this.answer = 'Waiting for you to stop typing...'
+      this.getAnswer()
+    }
+  },
+  methods: {
+    // _.debounce is a function provided by lodash to limit how
+    // often a particularly expensive operation can be run.
+    // In this case, we want to limit how often we access
+    // yesno.wtf/api, waiting until the user has completely
+    // finished typing before making the ajax request. To learn
+    // more about the _.debounce function (and its cousin
+    // _.throttle), visit: https://lodash.com/docs#debounce
+    getAnswer: _.debounce(
+      function () {
+        if (this.question.indexOf('?') === -1) {
+          this.answer = 'Questions usually contain a question mark. ;-)'
+          return
+        }
+        this.answer = 'Thinking...'
+        var vm = this
+        axios.get('https://yesno.wtf/api')
+          .then(function (response) {
+            vm.answer = _.capitalize(response.data.answer)
+          })
+          .catch(function (error) {
+            vm.answer = 'Error! Could not reach the API. ' + error
+          })
+      },
+      // This is the number of milliseconds we wait for the
+      // user to stop typing.
+      500
+    )
+  }
+})
+</script>
+```
+
 ### Interpolation
 
 We can output our data or our methods with interpolation, which uses the "moustache" syntax (double curly braces).
@@ -63,7 +162,11 @@ It can also be used for simple Javascript expressions, but it will only evaluate
 
 ### Directives and data binding
 
-The *v-* prefix grants access to a veriety of directives. Some of these directives take arguments, and enabled data binding, which allows us to bind data to different attributes of the DOM elements. Interpolation can't be used with directives.
+The *v-* prefix grants access to a veriety of directives.
+
+#### Arguments in directives
+
+Some of these directives take arguments, and enabled data binding, which allows us to bind data to different attributes of the DOM elements. Interpolation can't be used with directives.
 
 `<a v-bind:href="url">Link</a>`
 
@@ -71,7 +174,11 @@ or
 
 `<a :href="url">Link</a>`
 
-which is a shorthand. We can also bind events with *v-on*.
+which is a shorthand.
+
+#### Event binding and modifiers
+
+We can also bind events with *v-on*.
 
 `<a v-on:click="event">Link</a>`
 
@@ -87,16 +194,61 @@ Directives allow us to output html syntax that is parsed as html via *v-html*.
 
 `<p v-html="html"></p>`
 
-Or use logic in the html DOM through *v-if* and *v-else*.
+#### Conditional rendering
+
+Or use logic in the html DOM through *v-if*, *v-else-if* and *v-else*.
 
 ```
-<p v-if="seen">You've seen it.</p>
+<p v-if="seen === 'yes'">You've seen it.</p>
+<p v-else-if="seen === 'maybe'">You might have seen it. Who knows?</p>
 <p v-else>You haven't seen it.</p>
 ```
 
-### Computed properties, watchers
+Using *v-show* is similar to toggling display via CSS. Which means it will always be rendered in the DOM, but not always visible, while a conditionally rendered element will only show up for the first time, when the condition becomes true.
 
+`<p v-show="seen">You've seen it.</p>`
 
+#### List rendering
+
+List rendering can be done with *v-for*.
+
+#### Binding classes and styles
+
+```
+<div class="static"
+     v-bind:class="{ active: isActive, 'text-danger': hasError }">
+</div>
+```
+
+In the above example, Vue will give the div the *active* class if the isActive variable evaluates to true, and the *text-danger* class if the hasError variable is true. You can also use an non-inline object:
+
+`<div v-bind:class="classObject"></div>`
+
+```
+data: {
+  classObject: {
+    active: true,
+    'text-danger': false
+  }
+}
+```
+
+Or pass a computed object to the class binding:
+
+```
+data: {
+  isActive: true,
+  error: null
+},
+computed: {
+  classObject: function () {
+    return {
+      active: this.isActive && !this.error,
+      'text-danger': this.error && this.error.type === 'fatal'
+    }
+  }
+}
+```
 
 ### Routing
 
