@@ -83,9 +83,37 @@ Data binding also allows us to output html syntax that is parsed as html via *v-
 
 `npm install vue-router --save`
 
+Example routing:
+
+```
+import Vue from 'vue';
+import App from './App.vue';
+import VueRouter from 'vue-router';
+import AddTicket from './components/AddTicket.vue';
+Vue.use(VueRouter);
+
+const routes = [
+  {
+        name: 'add',
+        path: '/add',
+        component: AddTicket
+  }
+];
+const router = new VueRouter({ mode: 'history', routes: routes });
+
+Vue.config.productionTip = false;
+
+new Vue({
+  render: h => h(App),
+  router
+}).$mount('#app')
+```
+
 ### Connecting to an API
 
 The most commonly used package for handling endpoints is the *axios* http client which returns promises: [Axios Github](https://github.com/axios/axios).
+
+`npm install --save axios vue-axios`
 
 ```
 new Vue({
