@@ -526,4 +526,63 @@ new Vue({
 })
 ```
 
+### Filters
 
+Filters or pipes cna help you format text output. They do not change the initial values, and are usable in both interpolation or binding.
+
+```
+<!-- in mustaches -->
+{{ message | capitalize }}
+
+<!-- in v-bind -->
+<div v-bind:id="rawId | formatId"></div>
+```
+
+Filters can be defined either in the component's options, or globally before the Vue instance.
+
+```
+<!-- in the component -->
+filters: {
+  capitalize: function (value) {
+    if (!value) return ''
+    value = value.toString()
+    return value.charAt(0).toUpperCase() + value.slice(1)
+  }
+}
+
+<!-- global -->
+
+Vue.filter('capitalize', function (value) {
+  if (!value) return ''
+  value = value.toString()
+  return value.charAt(0).toUpperCase() + value.slice(1)
+})
+
+new Vue({
+  // ...
+})
+```
+
+#### Filters in Nuxt.js
+
+The only difference is, that you have to define filters in the plugins:
+
+```
+import Vue from 'vue'
+
+Vue.filter('capitalize', function (value) {
+  if (!value) return ''
+  value = value.toString()
+  return value.charAt(0).toUpperCase() + value.slice(1)
+})
+```
+
+And then in nuxt.config.js, you have to export the module, so nuxt will automatically create your filters before the Vue instance, in the next build:
+
+```
+module.exports = {
+  plugins: ['~plugins/filters.js']
+}
+```
+
+Source: [Issue #231](https://github.com/nuxt/nuxt.js/issues/231)
